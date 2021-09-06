@@ -1,0 +1,10 @@
+.Tilt {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(89deg, #de6161 0%, #2657eb 100%);
+}
+
+/* Image is 64 px, box is 100px, so need top padding of 18px to center */
+.brainImg {
+    padding-top: 18px;
+}

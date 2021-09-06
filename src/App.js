@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Navigation from './components/Navigation/Navigation'
+import Logo from './components/Logo/Logo'
+import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm'
+import FaceRecognition from './components/FaceRecognition'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Navigation />
+      <Logo />
+      <ImageLinkForm />
+      <FaceRecognition />
+      <footer>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://icons8.com/icon/4hGUZoWc6Eyu/brain">
+            Brain
+          </a> icon by <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://icons8.com">
+            Icons8
+          </a>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </footer>
     </div>
   );
 }
