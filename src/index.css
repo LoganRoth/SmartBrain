@@ -11,7 +11,7 @@ code {
 }
 
 nav {
-  display: flex;
+  display: inline;
   justify-content: flex-end;
 }
 
@@ -24,4 +24,8 @@ footer {
 
 button {
   cursor: pointer;
+}
+
+.nav-div {
+  float: right;
 }
