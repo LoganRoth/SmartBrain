@@ -86,7 +86,7 @@ class App extends Component {
     this.setState({
       imageUrl: this.state.userIn
     })
-    fetch('http://localhost:3001/imageurl', {
+    fetch('https://immense-caverns-44226.herokuapp.com/imageurl', {
       method: 'post',
       headers: {
         'content-type': 'application/json',
@@ -96,7 +96,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://localhost:3001/image', {
+          fetch('https://immense-caverns-44226.herokuapp.com/image', {
             method: 'put',
             headers: {
               'content-type': 'application/json',
