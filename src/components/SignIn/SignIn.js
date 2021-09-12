@@ -22,7 +22,6 @@ class SignIn extends Component {
             method: 'post',
             headers: {
                 'content-type': 'application/json',
-
             },
             body: JSON.stringify({
                 email: this.state.signInEmail,
