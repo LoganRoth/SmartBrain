@@ -103,7 +103,8 @@ class App extends Component {
                 'content-type': 'application/json',
               },
               body: JSON.stringify({
-                id: this.state.user.id
+                id: this.state.user.id,
+                faces: response.outputs?.length ? response.outputs[0].data.regions : 0
               })
             })
               .then(resp => {
