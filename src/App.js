@@ -86,48 +86,50 @@ class App extends Component {
     this.setState({
       imageUrl: this.state.userIn
     })
-    fetch('https://immense-caverns-44226.herokuapp.com/imageurl', {
-      method: 'post',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ input: this.state.userIn })
-    })
-      .then(response => response.json())
-      .then(response => {
-        if (response) {
-          fetch('https://immense-caverns-44226.herokuapp.com/image', {
-            method: 'put',
-            headers: {
-              'content-type': 'application/json',
-            },
-            body: JSON.stringify({
-              id: this.state.user.id
-            })
-          })
-            .then(resp => {
-              if (resp.status === 200) {
-                return resp.json()
-              } else {
-                throw Error
-              }
-            })
-            .then(updateEntry => {
-              this.setState(
-                Object.assign(this.state.user,
-                  {
-                    entries: updateEntry.entries
-                  }
-                )
-              )
-              if (response.outputs?.length) {
-                this.displayFaceBox(this.calculateFaceLoc(response.outputs[0].data.regions))
-              }
-            })
-            .catch(console.log)
-        }
+    if (this.state.userIn) {
+      fetch('https://immense-caverns-44226.herokuapp.com/imageurl', {
+        method: 'post',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({ input: this.state.userIn })
       })
-      .catch(console.log)
+        .then(response => response.json())
+        .then(response => {
+          if (response) {
+            fetch('https://immense-caverns-44226.herokuapp.com/image', {
+              method: 'put',
+              headers: {
+                'content-type': 'application/json',
+              },
+              body: JSON.stringify({
+                id: this.state.user.id
+              })
+            })
+              .then(resp => {
+                if (resp.status === 200) {
+                  return resp.json()
+                } else {
+                  throw Error
+                }
+              })
+              .then(updateEntry => {
+                this.setState(
+                  Object.assign(this.state.user,
+                    {
+                      entries: updateEntry.entries
+                    }
+                  )
+                )
+                if (response.outputs?.length) {
+                  this.displayFaceBox(this.calculateFaceLoc(response.outputs[0].data.regions))
+                }
+              })
+              .catch(console.log)
+          }
+        })
+        .catch(console.log)
+    }
   }
 
   onRouteChange = (newRoute) => {
